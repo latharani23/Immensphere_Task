@@ -43,10 +43,10 @@ const Login = () => {
   return (
     <div className="login-container">
       <h2>Login</h2>
-
+  
       {/* Display the message */}
       {message && <p>{message}</p>}
-
+  
       {/* Login Form */}
       <form onSubmit={handleSubmit}>
         <div>
@@ -70,10 +70,18 @@ const Login = () => {
           />
         </div>
         <button type="submit">Login</button>
-        {this.state.allowLogin===true ? <Redirect to="/home" /> : <Redirect to="/" />}
+  
+        {/* Redirect condition using if statement */}
+        {(() => {
+          if (this.state.allowLogin === true) {
+            return <Redirect to="/home" />;
+          } else {
+            return <Redirect to="/" />;
+          }
+        })()}
       </form>
     </div>
   );
 };
-
 export default Login;
+/*export default Login;*/
