@@ -1,60 +1,510 @@
-/* General styles */
+/* Global Styles */
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar brand (Udemy) styling */
+.navbar-brand {
+  font-size: 1.8rem; /* Adjust font size */
+  font-weight: bold;
+  color: #000; /* Brand color */
+  text-transform: Sentence; /* Uppercase letters */
+  text-decoration: none;
+}
+
+/* Ensure all text is black */
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: normal;
+  margin: 0;
+  color: black;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: white;
+  border-bottom: 2px solid #ddd;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 24px;
+  color: black !important;
+  padding: 10px 15px;
+}
+
+.navbar-toggler {
+  border-color: black;
+}
+
+.navbar-toggler-icon {
+  background-color: black;
+}
+
+/* Search Bar */
+.search-container {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+.search-container input.form-control {
+  width: 250%; /* Adjust the width */
+  background-color: #f0f0f0; /* Grey background */
+  border-radius: 30px;
+  padding-left: 60px; /* Extra space for the icon */
+  font-size: 24px;
+  padding: 15px;
+  margin: 0 auto;
+  text-align: left; /* Make sure text starts from the left */
+  border: 2px solid #020202; /* Border to give the input some definition */
+  transition: border-color 0.3s ease;
+}
+
+.search-container .search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px; /* Icon size */
+  color: #888;
+}
+
+.search-container input.form-control::placeholder {
+  color: #888;
+  font-size: 24px;
+  transition: color 0.3s ease; /* Smooth transition on focus */
+}
+
+/* Focused Search Input */
+.search-container input.form-control:focus {
+  border-color: #007bff; /* Highlight border color */
+  outline: none; /* Remove default outline */
+}
+
+.search-container input.form-control:focus::placeholder {
+  color: transparent; /* Hide placeholder text on focus */
+}
+
+/* Menu after Search Bar */
+.navbar-nav.ml-auto {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav-item {
+  margin-left: 30px;
+}
+
+.nav-item button {
+  font-size: 24px;
+  color: black;
+}
+
+
+/* Second Navbar Styles */
+.navbar-light.bg-light {
+  background-color: #f8f9fa; /* Light gray background */
+  border-bottom: 2px solid #ddd; /* Add a border for separation */
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-toggler {
+  border-color: #000;
+}
+
+.navbar-toggler-icon {
+  background-color: #000;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 15px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 24px;
+  color: #333;
+  padding: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* Change color on hover */
+  text-decoration: underline;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: center;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar-nav.ml-auto {
+    flex-direction: column;
+    margin-top: 10px;
   }
-  
-  /* Navbar styles */
-  .navbar {
+
+  .search-container input.form-control {
+    width: 80%; /* Adjust width */
+  }
+
+  .navbar-nav .nav-item {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .nav-item button.nav-button {
+    font-size: 18px; /* Adjust button font-size */
+    padding: 8px 16px;
+  }
+
+  .welcome-message-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #1a73e8; /* Blue background */
-    padding: 10px 20px;
-    color: white;
+    margin-top: 20px;
   }
-  
-  .navbar .logo a {
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
+
+  .profile-icon {
+    font-size: 2rem;
+    margin-right: 10px;
   }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+
+  h2 {
+    font-size: 1.5rem;
     margin: 0;
-    padding: 0;
   }
-  
-  .nav-links li a {
-    text-decoration: none;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+}
+
+/* Button Hover and Active States */
+.nav-item button.nav-button:hover {
+  background-color: #f0f0f0; /* Change background on hover */
+  color: #007bff;
+}
+
+.nav-item button.nav-button:active {
+  background-color: #ddd;
+}
+
+/* Container for the welcome message and profile icon */
+.welcome-message-container {
+  display: flex;
+  align-items: center; /* Aligns the icon and text horizontally */
+  justify-content: center; /* Centers the content horizontally */
+  font-size: 1.5rem; /* Adjust font size for the welcome message */
+  color: #333; /* Dark gray color for text */
+  margin-top: 20px; /* Space from the top */
+}
+
+/* Styling for the h2 element (Welcome back message) */
+h2 {
+  margin: 0; /* Remove any default margin */
+  font-weight: 600; /* Make the text bold */
+}
+
+/* Icon Styles */
+.nav-item i {
+  font-size: 24px; /* Uniform size for all icons */
+  color: #000; /* Black color for icons */
+  margin-right: 10px; /* Space between icons */
+}
+
+/* Add space above and below the carousel */
+#carouselExampleControls {
+  margin-top: 50px;  /* Space before the carousel */
+  margin-bottom: 50px;  /* Space after the carousel */
+  max-width: 90%;  /* Ensures the carousel fits within the container */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure the carousel images cover the available area properly */
+.carousel-inner {
+  height: 700px; /* Set a height for the carousel */
+}
+
+.carousel-item img {
+  object-fit: cover; /* Ensures the images are scaled to fill the area */
+  height: 300%;  /* Make the image fill the height */
+  width: 100%;  /* Make the image fill the width */
+}
+
+.carousel-image-container {
+  position: relative;
+}
+
+.carousel-caption h2, .carousel-caption p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Optional: Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  #carouselExampleControls {
+    margin-top: 20px;  /* Less space for smaller screens */
+    margin-bottom: 20px;
   }
-  
-  .nav-links li a:hover {
-    background-color: #155bb5; /* Darker blue */
+}
+
+/* Ensure the carousel takes full width of the container */
+.carousel-container {
+  max-width: 100%;
+  position: relative;
+}
+
+/* Styling for each content container inside the carousel */
+.carousel-content-container {
+  position: relative;
+}
+
+/* Adjust image sizes */
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+}
+
+/* Style the carousel caption */
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background-color: rgba(186, 148, 148, 0.5); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Style for the h1, h3, and h4 elements */
+.carousel-caption h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.carousel-caption h3, .carousel-caption h4 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h5 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-body p {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.card-body .btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.card-body .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Style adjustments for small screens */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  /* Home content styles */
-  .home-content {
-    text-align: center;
-    padding: 50px;
+
+  .card {
+    width: 100%;
   }
-  
-  .home-content h2 {
-    font-size: 36px;
-    color: #333;
+}
+/* Footer Styling */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 40px 0px;
+  font-family: Arial, sans-serif;
+  text-align:left;
+}
+
+/* Footer Sections Styling */
+.footer-section {
+  margin-bottom: 0px; 
+  margin-left: 30px;
+}
+
+/* First Section */
+.footer-section.first {
+  margin-bottom: 20px; /* Space below the first section */
+}
+
+.footer-section.first h2,
+.footer-section.first p {
+  margin: 0;
+  color: #fff;
+  text-align: left;
+}
+
+/* Second Section */
+.footer-section.second {
+  margin-top: 30px; /* Space above the second section */
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+.footer-section.second h3 {
+  margin: 0;
+  color: #fff;
+  text-align: left;
+}
+
+.footer-section p {
+  color: #ccc;
+  margin-top: 10px;
+}
+
+/* Divider Styling */
+.divider {
+  border-top: 2px solid #ccc;
+  margin: 0px 0;
+}
+
+/* Footer Links Styling */
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* Footer Column Styling */
+.footer-column {
+  width: 23%;
+  padding: 0px;
+  margin-left: 30px;
+}
+
+.footer-column h4 {
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.footer-column li {
+  margin-bottom: 7px;
+}
+
+.footer-column a {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+/* Optional: Responsive styling */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .home-content p {
-    font-size: 18px;
-    color: #666;
+
+  .footer-column {
+    width: 100%;
+    margin-bottom: 10px;
   }
-  
+
+  .footer-column a {
+    padding: 20px 0;
+  }
+}
+
+.copyright-text {
+  position: fixed; /* Stick to the bottom */
+  bottom: 0; /* Align to the bottom */
+  right: 0; /* Align to the right */
+  color: white; /* White text color */
+  background-color: transparent; /* Transparent background */
+  font-size: 14px; /* Font size for the text */
+  padding: 10px 20px; /* Add padding for spacing */
+  z-index: 10; /* Ensure it's above other elements */
+  text-align: right; /* Align text to the right */
+}

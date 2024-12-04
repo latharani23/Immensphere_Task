@@ -1,42 +1,24 @@
-import React, { useState } from "react";
-import Signup from "../src/components/Signup";
-import Login from "../src/components/Login";
-import Home from "../src/components/Home";
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom'; // Import Navigate
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Home from './components/Home';
+import './App.css';
 
-
-import "./App.css";
-
-function App() {
-  const [activeComponent, setActiveComponent] = useState(null); // Track which component to show
-
-  const handleNavigation = (component) => {
-    setActiveComponent(component); // Update the active component
-  };
-
+const App = () => {
   return (
-    <div className="App">
-      <nav>
-        <div className="logo">UniverseOfTechHub</div>
-        <ul className="nav-links">
-          <li>
-            <button onClick={() => handleNavigation("signup")}>Sign Up</button>
-          </li>
-          <li>
-            <button onClick={() => handleNavigation("login")}>Login</button>
-          </li>
-        </ul>
-      </nav>
-      <h1>Welcome to the UniverseOfTechHub</h1>
-      <div className="content">
-        {/* Conditionally render components */}
-        {activeComponent === "signup" && <Signup />}
-        {activeComponent === "login" && <Login />}
-        {activeComponent === "home" && <Home />}
-
-
-      </div>
+    <div className="app-container">
+      {/* Routes for different pages */}
+      <Routes>
+        {/* Redirect default path to Signup */}
+        <Route path="/" element={<Navigate to="/signup" />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

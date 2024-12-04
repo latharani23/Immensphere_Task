@@ -1,87 +1,49 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
 import './Login.css';
-import { useNavigate } from 'react-router-dom'; // Add this import
+
+ 
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const [message, setMessage] = useState("");
-  const navigate = useNavigate(); // Initialize the navigate hook
+  const handleLogin = (event) => {
+    event.preventDefault();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+    // Retrieve credentials from localStorage
+    const storedEmail = localStorage.getItem('email');
+    const storedPassword = localStorage.getItem('password');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post("http://localhost:3000/api/login", formData);
-
-      // Store the token in localStorage
-      localStorage.setItem("token", response.data.token);
-
-      // Set success message
-      setMessage("Login successful!");
-
-      // Redirect to the home page after successful login
-      navigate("/home"); // Redirect using navigate
-
-    } catch (error) {
-      setMessage(error.response ? error.response.data.message : "An error occurred");
+    // Compare entered credentials with stored credentials
+    if (email === storedEmail && password === storedPassword) {
+      alert('Login successful!');
+      window.location.href = '/home'; // Redirect to home page after successful login
+    } else {
+      alert('Invalid credentials');
     }
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container"> {/* Apply login-container style */}
       <h2>Login</h2>
-  
-      {/* Display the message */}
-      {message && <p>{message}</p>}
-  
-      {/* Login Form */}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
         <button type="submit">Login</button>
-  
-        {/* Redirect condition using if statement */}
-        {(() => {
-          if (this.state.allowLogin === true) {
-            return <Redirect to="/home" />;
-          } else {
-            return <Redirect to="/" />;
-          }
-        })()}
       </form>
     </div>
   );
 };
 export default Login;
-/*export default Login;*/

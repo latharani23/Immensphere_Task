@@ -1,83 +1,107 @@
-/* General container styling */
+/* General container for the login form */
 .login-container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Heading styling */
-.login-container h2 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Message styling */
-.login-container p {
-  font-size: 14px;
-  color: #007BFF;
-  margin-bottom: 15px;
-}
-
-/* Input field styling */
-.login-container input {
-  width: 100%;
-  padding: 10px 15px;
-  margin: 10px 0;
-  font-size: 14px;
+  width: 400px;
+  margin: 100px auto;
+  padding: 30px;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out; /* Add fade-in animation */
+}
+
+/* Heading styles */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Form styles */
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input field styles */
+.login-container input {
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  outline: none;
   transition: border-color 0.3s ease;
 }
 
-/* Input hover and focus effects */
+/* Highlight input field on focus */
 .login-container input:focus {
-  border-color: #007BFF;
-  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-/* Button styling */
+/* Button styles */
 .login-container button {
-  width: 100%;
-  padding: 10px 15px;
+  padding: 12px;
   font-size: 16px;
-  color: #fff;
-  background: #007BFF;
+  font-weight: bold;
+  color: white;
+  background-color: #ced0ce;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-/* Button hover effect */
-.login-container button:hover {
-  background: #0056b3;
+
+
+/* Error message styles (if any) */
+.login-container .error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-/* Add subtle transition to the inputs and buttons */
-.login-container input,
-.login-container button {
-  transition: all 0.3s ease;
+/* Success message styles (if any) */
+.login-container .success-message {
+  color: green;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-/* Responsive adjustments */
+
+.login-btn:hover {
+  background-color: #e0e0e0; /* Slightly darker gray */
+  border-color: #bbb;
+}
+
+/* Add responsive design for smaller screens */
 @media (max-width: 768px) {
   .login-container {
-    padding: 15px;
-  }
-
-  .login-container h2 {
-    font-size: 20px;
+    width: 90%;
+    padding: 20px;
   }
 
   .login-container input,
   .login-container button {
     font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
